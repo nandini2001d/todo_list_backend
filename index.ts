@@ -11,6 +11,12 @@ const PORT=7531;
 app.use(cors());
 app.use(express.json());
 
+dbConnection.initialize().then(()=>{
+    console.log("Database Connect");
+}).catch((errer)=>{
+    console.log("errer");
+})
+
 const repository=dbConnection.getRepository(node_todo_list);
 
 //get all by email
@@ -63,13 +69,7 @@ app.put('/todolists/status/:id', async (req:Request,res:Response)=>{
 
 })
 
-dbConnection.initialize().then(()=>{
-    console.log("Database Connect");
-}).catch((errer)=>{
-    console.log("errer");
-})
 
-
-app.listen(PORT,()=>{
+app.listen(PORT,():void=>{
     console.log("Server Is Start");
 })
