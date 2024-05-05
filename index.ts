@@ -5,11 +5,11 @@ import { node_todo_list } from "./Entity/todo_list";
 const cors = require('cors');
 
 const app=express();
-const PORT=7531;
 
 //midalware to cross origin
 app.use(cors());
 app.use(express.json());
+const port = 4357;
 
 dbConnection.initialize().then(()=>{
     console.log("Database Connect");
@@ -70,6 +70,7 @@ app.put('/todolists/status/:id', async (req:Request,res:Response)=>{
 })
 
 
-app.listen(PORT,():void=>{
+
+app.listen(port,()=>{
     console.log("Server Is Start");
 })
