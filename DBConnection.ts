@@ -1,4 +1,7 @@
 import {DataSource} from 'typeorm';
+import dotev from "dotenv";
+
+dotev.config();
 
 export const dbConnection=new DataSource({
 
